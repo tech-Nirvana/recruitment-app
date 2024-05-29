@@ -1,33 +1,372 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+html, .hero-title, .navigation {
+  margin: 0;
+  font-size: small;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+/*.hero-para {
+  font-family: "Roboto Mono", monospace;
+}*/
+
+@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@200..800&family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
+
+.landing-page {
+  background-image: url('/images/bg.svg');     
+  background-repeat: no-repeat;
+  background-size: 100vw;
+}
+
+.hero-section, .job-section, .notice-section, .query-section {
+  border-bottom: 1px solid rgba(100, 100, 100, .1);
+}
+.registration-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.navigation {
+  height: 13vw;
+}
+
+.hamburger-menu {
+  cursor: pointer;  
+  font-size: 24px;
+}
+
+.nav-list {
+  display: none;
+  margin: 0;
+  padding: 0;
+}
+
+.open {
+  background-color: aliceblue;
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  align-items: center;
+}
+
+.nav-list li {
+  list-style-type: none;
+  margin-right: 10px;
+}
+
+a, .query-submit-btn {
+  font-family: "Roboto Mono", monospace;
+  font-size: 20px;
+  color: black;
+  display: block;
+  text-decoration: none;
+  padding: 5px 20px;  
+  border-radius: 5px;
+}
+
+a:hover {  
+  background-color: #08A045;
+  color: white;
+}
+
+.apply-help a {
+  color: black;
+  font-size: 16px;
+}
+
+.hero-title {
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: 7.5vw;
+  margin-right: 10px;
+  color: #08A045;
+}
+
+.hero-wrapper {
+  height: 62vw;
+}
+
+.register-btn {
+  display: inline-block;
+  font-family: "Roboto Mono", monospace;
+  cursor: pointer;
+  font-size: 6vw;
+  font-weight: bolder;
+  color: coral;
+  background-color:rgba(199, 168, 127, 0.2);
+  padding: 1vw 2vw;
+  border: 0;
+  border-radius: .75vw;
+}
+.hero-para {
+  margin: 10px;
+}
+.job-heading, .notice-heading, .query-heading, .contact-heading {
+  text-align: center;
+  color:coral;
+}
+.contact-heading {
+  color: #fff;
+}
+.job-wrapper, .notice-wrapper, .contact-wrapper {
+  display: flex;  
+  flex-direction: column;
+}
+.contact-wrapper {
+  justify-content:center;
+}
+.footer-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.footer-wrapper p {
+  text-align: center;
+  margin: 0 10PX 10PX 0;
+}
+.job-item, .notice-item, .query-form form {
+  background-color: #fff;
+  margin: 10px;
+  padding: 10px;
+  box-shadow: 0 2px 30px rgba(22, 25, 32, .08);
+  border-radius: 10px;
+}
+.job-footer, .notice-footer {
+  display: flex;
+  align-items: center;
+  padding: 10px 0;
+}
+.advt-no, .notice-no {
+  padding: 10px 0;
+}
+.job-detail-btn, .notice-detail-btn, .query-submit-btn {
+  margin-left: auto;
+}
+
+.job-detail-btn a, .notice-detail-btn a, .query-submit-btn {
+  display: block;  
+  border: 1px solid coral;
+  color: coral;  
+  background-color: white;
+  font-size: 16px;  
+  border-radius: 5px;  
+  padding: auto;
+}
+.job-detail-btn a:hover, .notice-detail-btn a:hover, .query-submit-btn:hover, .register-btn:hover {
+  color: white;
+  background-color: coral;
+  cursor: pointer;
+}
+
+
+.advt-no h3, .notice-no h3 {
+  margin: 0;
+}
+
+.query-form {
+  margin: 10px 0;
+}
+#query-name, #query-mail, #query-msg, #registration-mail, #registration-password, .create-account-btn {
+  width: 100%;
+  border-radius: 5px;
+  border: 1px solid rgba(22, 25, 32, .2);
+  margin-top: 7px;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+#query-name, #query-mail {
+  margin-bottom: 20px;
+}
+
+#query-msg {
+  height: 10rem;
+}
+
+input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  border: 1px solid rgba(22, 25, 32, .2);
+  width: 17px;
+  height: 17px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.query-form form {
+  max-width: 800px; 
+  margin: 10px;
+}
+
+.query-form level {
+  margin-bottom: 2rem;
+}
+.query-side {
+  float: right;
+  font-size: smaller;
+}
+.query-agreement {
+  clear: both;
+  padding: 1rem 0;
+  display: flex;
+  align-items: center;
+}
+.contact-section {
+  background-color: rgba(8, 160, 69, 0.8);
+  color: #fff;
+  margin: 10px;
+  border-radius: 5px;
+  padding-top: 25px;
+}
+.contact-wrapper, .contact-item, .contact-address, .contact-number, .contact-email {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.contact-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 50px;
+  background-color: #fff;
+  border-radius: 50%;
+}
+.contact-image img {
+  width: 60%;
+}
+.contact-item {
+  flex: 1;
+  max-width: 300px;
+  padding: 10px;
+  margin-bottom: 30px;
+}
+
+.contact-item p {
+  text-align: center;
+  color: #ddd;
+}
+.max-char {
+  color: #08A045;
+  font-weight: bold;
+}
+.registration-wrapper {
+  width: 100%;
+  max-width: 320px;  
+  margin: 10px;
+}
+.registration-mail, .registration-password {
+  position: relative;
+}
+/*#registration-mail, #registration-password {  
+  margin: 0;
+}*/
+.registration-mail-label, .registration-password-label {
+  position: absolute;
+  padding: 0 7px;
+  background-color: #fff;
+  left: 7px;
+  top: 19px;
+  transition: all 0.3s ease;
+}
+#registration-mail:focus, #registration-password:focus {
+  outline: none;
+  border: 1px solid coral;
+}
+#registration-mail:focus +.registration-mail-label,  
+#registration-password:focus +.registration-password-label{
+  position: absolute;
+  top: -1px;
+  color: coral;
+}
+.create-account-btn {
+  background-color: coral;
+  color: #fff;
+}
+.other-page {
+  text-align: center;
+}
+.other-page-link {
+  all: initial;
+}
+.devider {
+  display: block;
+  text-align: center;
+  background-color: #fff;
+  padding: 0 10px;
+  position: absolute;
+  bottom: -7px;
+  left: calc(50% - 16px);
+}
+.devider-wrapper {
+  position: relative;
+  border-bottom: 1px solid black;
+}
+
+@media screen and (min-width: 576px){
+  html, .hero-para {
+    margin: 0;
+  }
+  .hero-title {
+    font-size: 5.5vw;
+  }  
+  .register-btn {
+    font-size: 3.75vw;
+  }
+  .hero-para {
+    font-size: 20px; 
+    margin: 0;
+  }
+  .hamburger-menu {
+    display: none;
+  }
+
+  .nav-list {
+    display: flex;
+    flex-direction: row;
+    background-color: transparent;
+  }
+
+  .apply-help {
+    margin-left: auto;
+    font-size: 8px;
+    color: black;
+  }
+
+  .landing-page {
+    background-image: url('/images/bg1.svg');
+  }
+
+  .hero-wrapper {
+    height: 40vw;
+  }
+  .job-wrapper, .notice-wrapper {
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: flex-start;
+  }
+  .contact-wrapper {
+    flex-direction: row;
+    align-items: stretch;
+  }
+  .job-item, .notice-item {
+    flex: 1 250px;
+  }
+  .query-form form {
+    margin: auto;
+  }
+  .contact-item:not(:last-child) {
+    border-right: 1px solid #fff;
+  }
+  .footer-wrapper {
+    flex-direction: row;
+    justify-content: space-between;
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
-}
-
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+@media screen and (min-width: 900px){
+  .hero-para, a {
+    font-size: 24px;
   }
 }
+
+
+
